@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 import AppHeader from '../AppHeader/AppHeader';
-import SearchFilter from '../SearchFilter/SearchFilter';
+import SearchPanel from '../SearchFilter/SearchPanel';
+import FilterPanel from '../SearchFilter/FilterPanel';
 import TodoList from '../TodoList/TodoList';
 import InputPanel from '../InputPanel/InputPanel';
 
@@ -14,11 +15,31 @@ class App extends Component{
     firstId = 10;
 
     state = {
+        filter: '',
+        term: '',
         todoData: [
             this.createTodoItem('Drink cofee'),
             this.createTodoItem('Go for a walk'),
             this.createTodoItem('Build an app')
         ]
+    };
+
+    filter(items, filter){
+        switch(filter){
+            case 'all' : return items;
+            case 'active' : return items.filter(el => !el.done);
+            case 'done' : return items.filter(el => el.done);
+            default: return items;    
+        };
+    };
+
+    search(items, term){
+        if(term.length === 0){
+            return items;
+        }
+        return items.filter((item) => {
+            return item.label.toLowerCase().indexOf(term) > -1;
+        });
     };
 
     createTodoItem(label){
@@ -27,11 +48,8 @@ class App extends Component{
             important: false,
             done: false,
             id: this.firstId++,
-        }
+        };
     };
-    // findIndex(array, id){
-    //     const index = array.findIndex((el) => el.id === id)
-    // };
 
     toggleProperty(arr, id, propName) {
         const index = arr.findIndex((el) => el.id === id);
@@ -43,7 +61,7 @@ class App extends Component{
             newItem,
             ...arr.slice(index + 1),
         ]
-    }
+    };
 
     deleteItem = (id) => {
         this.setState(({todoData}) => {
@@ -89,20 +107,63 @@ class App extends Component{
         })
     };
 
+    onAllClick = () => {
+        this.setState({
+            filter: 'all'
+        });
+    };
+  
+    onActiveClick = () => {
+        this.setState({
+            filter: 'active'
+        });
+    };
+  
+    onDoneClick = () => {
+        this.setState({
+            filter: 'done'
+        })
+    };
+
+    onSearch = (term) => {
+        this.setState({term})
+    }
+
     render(){
-        const {todoData} = this.state;
-        const doneCount = todoData.filter((el) => el.done).length
-        const todoCount = todoData.filter((el) => !el.done).length
+        
+        const {todoData, term} = this.state;
+
+        const visibleItems = this.search(this.filter(todoData, this.state.filter), term.toLowerCase());
+
+        const doneCount = todoData.filter((el) => el.done).length;
+        const todoCount = todoData.filter((el) => !el.done).length;
         
         return (
+            
             <div className = "app">
                 <AppHeader  toDo = {todoCount} done = {doneCount}/>
-                <SearchFilter />
+
+                {/* /* <SearchFilter 
+                onAllClick = {this.onAllClick} 
+                onActiveClick = {this.onActiveClick}
+                onDoneClick = {this.onDoneClick}
+                onSearch = {this.onSearch}
+                filter = {this.state.filter}/> */}
+                <div className = 'search-filter'>
+                    <SearchPanel 
+                    onSearch = {this.onSearch}/>
+                    <FilterPanel 
+                    onAllClick = {this.onAllClick}
+                    onActiveClick = {this.onActiveClick}
+                    onDoneClick = {this.onDoneClick}
+                    filter = {this.state.filter}/>
+                </div>
                 <TodoList 
-                todos = { todoData }
+                todos = { visibleItems }
                 onDeleted = {this.deleteItem}
                 onToggleImportant = {this.onToggleImportant}
                 onToggleDone = {this.onToggleDone}/>
+                
                 <InputPanel onItemAdded = {this.addItem}/>
             </div>
         );
