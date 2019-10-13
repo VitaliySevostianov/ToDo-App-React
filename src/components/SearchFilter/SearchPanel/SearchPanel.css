@@ -1,5 +1,6 @@
 .search-panel{
     margin-bottom: 10px;
+    margin-right: 5px;
     display: flex;
     flex: 2 2 auto;
     height: 38px;

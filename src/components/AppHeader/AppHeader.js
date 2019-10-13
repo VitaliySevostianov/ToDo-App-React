@@ -2,11 +2,11 @@ import React from 'react';
 import TodoStatus from './TodoStatus/TodoStatus';
 import './AppHeader.css';
 
-const AppHeader = () => {
+const AppHeader = ({toDo, done}) => {
     return (
         <div className = 'app-header'>
             <h1>Todo List</h1>
-            <TodoStatus />
+            <TodoStatus toDo = {toDo} done = {done} />
         </div>
     );
 }

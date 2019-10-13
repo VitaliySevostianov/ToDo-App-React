@@ -1,10 +1,10 @@
 import React from 'react';
 import './TodoStatus.css'
 
-const TodoStatus = () => {
+const TodoStatus = ({toDo, done}) => {
     return (
     <div className = 'todo-status'>
-        <span>1 more to do, 3 done</span>
+        <span>{toDo} more to do, {done} done</span>
     </div>
     )
 }

@@ -1,0 +1,30 @@
+.input-panel{
+    margin-top: 10px;
+    display: flex;
+}
+
+.input{
+    margin-right: 5px;
+    display: flex;
+    flex: 2 2 auto;
+    height: 38px;
+}
+
+.input-button{
+    display: flex;
+    flex: 1 1 auto;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    position: relative;    
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+.input-button:hover{
+    color: #ffffff;
+    background: #6c757d;
+}

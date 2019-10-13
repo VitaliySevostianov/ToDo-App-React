@@ -11,9 +11,25 @@
     flex-direction: row;
     justify-content: space-between;
     width: 16%;
+    cursor: pointer;
 }
 
 .btn{
     min-width: 35px;
     /* margin: 3px; */
+}
+
+.done{
+    text-decoration: line-through;
+    
+}
+
+.todo-text{
+    cursor: pointer;
+    font: 900;
+}
+
+.important{
+    color: rgb(17, 77, 155);
+    font-weight: 900;
 }
