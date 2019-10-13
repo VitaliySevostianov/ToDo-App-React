@@ -1,0 +1,12 @@
+.btn-group{
+    display: flex;
+    /* flex: 0 0 auto; */
+    text-align: center;
+    align-items: center;
+}
+
+/* .btn{
+    display: flex;
+    text-align: center;
+    align-items: center;
+} */
