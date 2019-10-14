@@ -12,8 +12,9 @@
 
 .input-button{
     display: flex;
-    flex: 1 1 auto;
+    /* flex: 1 1 auto; */
     height: 38px;
+    width: 151.667px;
     margin: 0;
     padding: 0;
     background: none;
@@ -27,4 +28,11 @@
 .input-button:hover{
     color: #ffffff;
     background: #6c757d;
+}
+.input-button:active{
+    color: #ffffff;
+    background: green;
+    box-shadow: 0 0 10px rgba(0, 255, 55, 0.651);
+    transition: box-shadow 0.15s ease;
+    transition: background 0.15s ease;
 }

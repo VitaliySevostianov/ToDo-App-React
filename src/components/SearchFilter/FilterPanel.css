@@ -3,6 +3,7 @@
     /* flex: 0 0 auto; */
     text-align: center;
     align-items: center;
+    
 }
 
 /* .btn{
@@ -10,3 +11,22 @@
     text-align: center;
     align-items: center;
 } */
+
+
+
+.button{
+    border-radius: 3px;
+    height: 38px;
+    background: white;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+}
+.button:active{
+    background: green;
+    color: white;
+}
+
+.active-button{
+    background: rgb(36, 228, 109);
+    color: white;
+}

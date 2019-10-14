@@ -19,7 +19,7 @@ export default class SearchPanel extends Component{
         return (
             <input 
             className ="search-panel" 
-            placeholder = "input" 
+            placeholder = "Search what you need" 
             value={this.state.term}
             onChange={ this.onTermChange }
             />

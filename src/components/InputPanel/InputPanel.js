@@ -13,12 +13,18 @@ export default class InputPanel extends Component {
         });
     };
 
+    isEmpty = str => {
+         return (!/^\s+$/.test(str));
+    }
+
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.onItemAdded(this.state.label);
-        this.setState({
-            label: ''
-        });
+        if(this.isEmpty(this.state.label) && this.state.label !== ''){
+            this.props.onItemAdded(this.state.label);
+            this.setState({
+                label: ''
+            });
+        }
     };
     
     render(){

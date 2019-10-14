@@ -16,12 +16,14 @@
 
 .btn{
     min-width: 35px;
-    /* margin: 3px; */
 }
-
+.important{
+    color: rgb(255, 98, 7);
+    font-weight: 900;
+}
 .done{
+    color: grey;
     text-decoration: line-through;
-    
 }
 
 .todo-text{
@@ -29,7 +31,26 @@
     font: 900;
 }
 
-.important{
-    color: rgb(17, 77, 155);
-    font-weight: 900;
+
+
+.complete-check{
+    font-size: 15px;
+    color: white;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(36, 228, 109);
+    border-radius: 50% ;
+}
+
+.changed{
+    background-color: rgb(36, 228, 109);
+}
+
+.main-span{
+    display: flex;
+    align-items: baseline;
 }

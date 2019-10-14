@@ -63,7 +63,7 @@ class App extends Component{
         ]
     };
 
-    deleteItem = (id) => {
+    deleteItem = id => {
         this.setState(({todoData}) => {
             const index = todoData.findIndex((el) => el.id === id)
 
@@ -78,7 +78,7 @@ class App extends Component{
         });
     };
 
-    addItem = (text) => {
+    addItem = text => {
         const newItem = this.createTodoItem(text);
         this.setState(({todoData}) => {
             const updated = [
@@ -107,6 +107,10 @@ class App extends Component{
         })
     };
 
+    onSearch = term => {
+        this.setState({term})
+    }
+
     onAllClick = () => {
         this.setState({
             filter: 'all'
@@ -125,9 +129,7 @@ class App extends Component{
         })
     };
 
-    onSearch = (term) => {
-        this.setState({term})
-    }
+
 
     render(){
         
@@ -135,8 +137,8 @@ class App extends Component{
 
         const visibleItems = this.search(this.filter(todoData, this.state.filter), term.toLowerCase());
 
-        const doneCount = todoData.filter((el) => el.done).length;
-        const todoCount = todoData.filter((el) => !el.done).length;
+        const doneCount = todoData.filter(el => el.done).length;
+        const todoCount = todoData.filter(el => !el.done).length;
         
         return (
             

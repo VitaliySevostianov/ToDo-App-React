@@ -11,17 +11,17 @@ export default class FilterPanel extends Component{
 
     const {filter, onAllClick, onActiveClick, onDoneClick} = this.props
     
-    let allClassName = "btn ";
-    let activeClassName = "btn ";
-    let doneClassName = "btn ";
+    let allClassName = "button ";
+    let activeClassName = "button ";
+    let doneClassName = "button ";
     if(filter === "all"){
-      allClassName += 'btn-info';
+      allClassName += 'active-button';
     }
     if(filter === "active"){
-      activeClassName += 'btn-info';
+      activeClassName += 'active-button';
     }
     if(filter === "done"){
-      doneClassName += 'btn-info';
+      doneClassName += 'active-button';
     }
     return (
       <div className="btn-group">
