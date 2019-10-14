@@ -19,7 +19,7 @@
 }
 .important{
     color: rgb(255, 98, 7);
-    font-weight: 900;
+    font-weight: bold;
 }
 .done{
     color: grey;
@@ -29,6 +29,7 @@
 .todo-text{
     cursor: pointer;
     font: 900;
+    transition: all 0.3s ease;
 }
 
 
@@ -44,6 +45,7 @@
     height: 20px;
     border: 1px solid rgb(36, 228, 109);
     border-radius: 50% ;
+    transition: all 0.3s ease;
 }
 
 .changed{
